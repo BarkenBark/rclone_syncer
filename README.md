@@ -82,7 +82,17 @@ By running the command with no positional arguments, the current directory is ad
 
 Any directory which contains a file named *.barksync_ignored* will be excluded from synchronization. Such a file can be added using the `barksync_exclude` command. The files may also be removed by using the `barksync_add` command with the `--unexclude` option.
 
-
 ### Log file
 
 Logs from the underlying `rclone sync` command invoked by `barksync_sync` are saved to *log/rclone.log*.
+
+# TO DO
+
+- [ ] Notify user if file not found when syncing.
+- [ ] Add a *.barksync_sync* file system?
+  - Periodically scan selected directories for subdirectories containing *.barksync_sync* files to sync.
+  - The *.barksync_sync* files may contain exclusion filters.
+  - Could potentially just have a single *.barksync* file which contains exclusion filters.
+    - Any folder with a *.barksync* file will be synced.
+    - Could pass to *.barksync* to `--exclude-from` flag in `rclone sync`.
+- [ ] Use [Argh](https://pypi.org/project/argh/) to create a proper CLI tool rather than having different symlinks to different scripts.
