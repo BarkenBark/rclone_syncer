@@ -6,7 +6,6 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.append(str(SCRIPT_DIR))
-from util.barktools import user_yes_no
 
 RCLONE_IGNORE_FILENAME = ".barksync_ignore"
 
@@ -18,8 +17,6 @@ def main(*paths: Path):
     print("Will exclude the following directories from syncing:")
     for p in paths:
         print("-", p)
-    if not user_yes_no("Okay?"):
-        sys.exit(0)
 
     for p in paths:
         rclone_ignore_path = p / RCLONE_IGNORE_FILENAME

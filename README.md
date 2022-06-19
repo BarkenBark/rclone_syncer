@@ -96,3 +96,4 @@ Logs from the underlying `rclone sync` command invoked by `barksync_sync` are sa
     - Any folder with a *.barksync* file will be synced.
     - Could pass to *.barksync* to `--exclude-from` flag in `rclone sync`.
 - [ ] Use [Argh](https://pypi.org/project/argh/) to create a proper CLI tool rather than having different symlinks to different scripts.
+- [ ] Add dry run to path exclusion script.

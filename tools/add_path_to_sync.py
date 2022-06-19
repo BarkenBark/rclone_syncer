@@ -14,7 +14,6 @@ from exclude_path_to_sync import RCLONE_IGNORE_FILENAME
 
 SCRIPT_DIR = Path(__file__).resolve().parents[1]
 sys.path.append(str(SCRIPT_DIR))
-from util.barktools import user_yes_no
 
 REMOTE_TOP_DIRECTORY_NAME = f"{socket.gethostname()}_backup"
 PATHS_TO_SYNC_JSON_PATH = SCRIPT_DIR / "cfg/paths_to_sync.json"
@@ -54,12 +53,9 @@ def main(
     if excludes:
         print("Using the following exclusion patterns:")
         for exclude_pattern in excludes:
-            print(exclude_pattern)
+            print("-", exclude_pattern)
     else:
         print("Using no exclusion patterns.")
-
-    if not user_yes_no("Okay?"):
-        sys.exit(0)
 
     # Load existing paths to sync.
     with open(PATHS_TO_SYNC_JSON_PATH, "r") as f:
