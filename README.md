@@ -16,7 +16,7 @@ Run `sudo ./install.sh <<REMOTE_NAME>>` where `<<REMOTE_NAME>>` is the name of t
 
 - You can list all available remotes in `rclone` by running `rclone config`.
 
-`install.sh` will add the following commands to */usr/bin* (symbolic links to scripts in this directory) and add a crontab to run the first listed command every hour:
+`install.sh` will add the following commands to */usr/bin* (symbolic links to scripts in this directory) and add a crontab to run the first listed command at a regular interval:
 
 - `barksync_sync` - Syncs all files specified in the list of paths to sync (see section [List of paths to sync](#list-of-paths-to-sync-cfgpaths_to_syncjson)) to the remote.
 - `barksync_add` - Adds path(s) to list of paths to sync. *Requires `python`.*
@@ -26,7 +26,7 @@ For more information, run the commands with the `--help` flag.
 
 ## Usage and explanation
 
-After installation, `barksync_sync` will be run as a cronjob once every hour, syncing the paths specified in the [list of paths to sync](#list-of-paths-to-sync-cfgpaths_to_syncjson). It is also possible to run the command manually. Any arguments passed to `barksync_sync` will be passed to the underlying `rclone sync` command.
+After installation, `barksync_sync` will be run as a cronjob once every day at 11:30, syncing the paths specified in the [list of paths to sync](#list-of-paths-to-sync-cfgpaths_to_syncjson). It is also possible to run the command manually. Any arguments passed to `barksync_sync` will be passed to the underlying `rclone sync` command.
 
 Any paths specified below are relative to this repository root.
 

@@ -34,12 +34,12 @@ fi
 ln -s ${SCRIPT_DIR}/sync_paths.sh /usr/bin/barksync_sync
 echo "Created link /usr/bin/barksync_sync -> ${SCRIPT_DIR}/sync_paths.sh"
 
-# Add crontab for sync tool. # Will run once every hour.
+# Add crontab for sync tool. # Will run once every dat at 11.30.
 # For some reason I can't get the crontab to work with user root. Using $(logname) gets
 # the username of the user who called the install.sh script, even when using sudo.
 # Setting XDG_RUNTIME_DIR is necessary for notification to display to the user.
 echo "SHELL=/bin/bash" > /etc/cron.d/sync_paths
-echo "0 * * * * $(logname) XDG_RUNTIME_DIR=/run/user/\$(id -u) /usr/bin/barksync_sync" > /etc/cron.d/sync_paths
+echo "30 11 * * * $(logname) XDG_RUNTIME_DIR=/run/user/\$(id -u) /usr/bin/barksync_sync" > /etc/cron.d/sync_paths
 echo "Added crontab /etc/cron.d/sync_paths."
 
 # Install additional tools for managing paths to sync. Require python to use.
