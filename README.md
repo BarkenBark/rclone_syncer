@@ -89,6 +89,7 @@ Logs from the underlying `rclone sync` command invoked by `barksync_sync` are sa
 # TO DO
 
 - [ ] Notify user if file not found when syncing.
+- [ ] Add ability to exclude single file in synced folder.
 - [ ] Add a *.barksync_sync* file system?
   - Periodically scan selected directories for subdirectories containing *.barksync_sync* files to sync.
   - The *.barksync_sync* files may contain exclusion filters.
